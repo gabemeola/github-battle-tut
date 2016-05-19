@@ -2,6 +2,9 @@ import React from "react";
 var transparentBg = require("../styles").transparentBg;
 
 var PromptContainer = React.createClass({
+	contextTypes: {
+		router: React.PropTypes.object.isRequired
+	},
 	getInitialState: function () {
 		return {
 			username: ""
@@ -20,8 +23,10 @@ var PromptContainer = React.createClass({
 		});
 		
 		if (this.props.routeParams.playerOne) {
+			console.log(this.context);
 			// go to /battle
 		} else {
+			console.log(this.context);
 			// go to /playertwo
 		}
 	},
