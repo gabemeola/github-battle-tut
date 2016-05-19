@@ -23,11 +23,15 @@ var PromptContainer = React.createClass({
 		});
 		
 		if (this.props.routeParams.playerOne) {
-			console.log(this.context);
-			// go to /battle
+			this.context.router.push({
+				pathname: "/battle",
+				query: {
+					playerOne: this.props.routeParams.playerOne,
+					playerTwo: this.state.username
+				}
+			})
 		} else {
-			console.log(this.context);
-			// go to /playertwo
+			this.context.router.push("/playerTwo/" + this.state.username)
 		}
 	},
 	render(){
