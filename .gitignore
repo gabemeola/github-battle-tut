@@ -4,6 +4,7 @@ firebase.json
 .DS_Store
 bundle.js
 .idea
+node_modules
 main.css
 min-icons/
 build/
