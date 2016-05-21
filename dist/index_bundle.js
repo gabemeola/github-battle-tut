@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "678bf09388e7d18e9606"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "5827f3997b8edb7e01c4"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -26423,49 +26423,56 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Prompt = _react2.default.createClass({
-		displayName: "Prompt",
-		render: function render() {
-			return _react2.default.createElement(
+	var transparentBg = __webpack_require__(233).transparentBg;
+
+	// functional stateless components for only rendering UI
+	function Prompt(props) {
+		return _react2.default.createElement(
+			"div",
+			{ className: "jumbotron col-sm-6 col-sm-offset-3 text-center", style: transparentBg },
+			_react2.default.createElement(
+				"h1",
+				null,
+				props.header
+			),
+			_react2.default.createElement(
 				"div",
-				{ className: "jumbotron col-sm-6 col-sm-offset-3 text-center", style: transparentBg },
+				{ className: "col-sm-12" },
 				_react2.default.createElement(
-					"h1",
-					null,
-					this.props.route.header
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "col-sm-12" },
+					"form",
+					{ onSubmit: props.onSubmitUser },
 					_react2.default.createElement(
-						"form",
-						{ onSubmit: this.onSubmitUser },
+						"div",
+						{ className: "form-group" },
+						_react2.default.createElement("input", {
+							className: "form-control",
+							placeholder: "Github Username",
+							onChange: props.onUpdateUser,
+							value: props.username,
+							type: "text" })
+					),
+					_react2.default.createElement(
+						"div",
+						{ className: "form-group col-sm-4 col-sm-offset-4" },
 						_react2.default.createElement(
-							"div",
-							{ className: "form-group" },
-							_react2.default.createElement("input", {
-								className: "form-control",
-								placeholder: "Github Username",
-								onChange: this.onUpdateUser,
-								value: this.state.username,
-								type: "text" })
-						),
-						_react2.default.createElement(
-							"div",
-							{ className: "form-group col-sm-4 col-sm-offset-4" },
-							_react2.default.createElement(
-								"button",
-								{
-									className: "btn btn-block btn-success",
-									type: "submit" },
-								"Continue"
-							)
+							"button",
+							{
+								className: "btn btn-block btn-success",
+								type: "submit" },
+							"Continue"
 						)
 					)
 				)
-			);
-		}
-	});
+			)
+		);
+	}
+
+	Prompt.propTypes = {
+		header: _react.PropTypes.string.isRequired,
+		onUpdateUser: _react.PropTypes.func.isRequired,
+		onSubmitUser: _react.PropTypes.func.isRequired,
+		username: _react.PropTypes.string.isRequired
+	};
 
 	exports.default = Prompt;
 
