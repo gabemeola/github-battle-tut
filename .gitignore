@@ -2,7 +2,6 @@
 *.css.map
 firebase.json
 .DS_Store
-node_modules
 bundle.js
 .idea
 main.css
