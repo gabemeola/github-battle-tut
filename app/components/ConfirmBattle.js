@@ -1,9 +1,13 @@
 import React from "react";
 
+function puke (obj) {  //Pukes the Data to the screen to look at
+	return <pre>{JSON.stringify(obj, null, " ")}</pre>
+}
+
 function ConfirmBattle(props) {
 	return props.isLoading === true
 		? <p>Loading</p>
-		: <p>Confirm Battle</p>
+		: <div>Confirm Battle!: {puke(props)}</div>
 }
 
 export default ConfirmBattle;
