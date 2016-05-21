@@ -1,5 +1,6 @@
 import axios from "axios";
 
+//Prevent Github Api Lock
 var id = "YOUR_CLIENT_ID",
 		sec = "YOUR_SECRET_ID",
 		param = `?client_id=${id}&client_secret=${sec}`;
