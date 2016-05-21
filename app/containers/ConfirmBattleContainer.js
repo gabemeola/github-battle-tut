@@ -21,7 +21,7 @@ var ConfirmBattleContainer = React.createClass({
 					isLoading: false,
 					playersInfo: [players[0], players[1]]
 				})
-			})
+			}.bind(this)); //Bind the inner function "this" to the React.createClass outer function "this"
 	},
 	render(){
 		return(
