@@ -23,10 +23,14 @@ var ConfirmBattleContainer = React.createClass({
 				})
 			}.bind(this)); //Bind the inner function "this" to the React.createClass outer function "this"
 	},
+	handleInitiateBattle: function () {
+
+	},
 	render(){
 		return(
 			<ConfirmBattle
 				isLoading={this.state.isLoading}
+				onInitiateBattle={this.handleInitiateBattle}
 				playersInfo={this.state.playersInfo}
 			/>
 		)
