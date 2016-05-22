@@ -24,7 +24,12 @@ var ConfirmBattleContainer = React.createClass({
 			}.bind(this)); //Bind the inner function "this" to the React.createClass outer function "this"
 	},
 	handleInitiateBattle: function () {
-
+		this.context.router.push({
+			pathname: "/results",
+			state: {
+				playerInfo: this.state.playersInfo
+			}
+		})
 	},
 	render(){
 		return(
