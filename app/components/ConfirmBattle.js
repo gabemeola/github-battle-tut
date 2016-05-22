@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react";
-import styles from "../styles"
+import styles from "../styles";
+import { Link } from "react-router";
 
 function puke (obj) {  //Pukes the Data to the screen to look at
 	return <pre>{JSON.stringify(obj, null, " ")}</pre>;  //Pre tag keeps the Exact format you type in, tabs and all
@@ -22,10 +23,14 @@ function ConfirmBattle(props) {
 				</div>
 				<div className='col-sm-8 col-sm-offset-2'>
 					<div className='col-sm-12' style={styles.space}>
-						INITIATE BATTLE BUTTON
+						<button type="button" className="btn btn-lg btn-success" onclick={props.onInitiateBattle}>
+							Initiate Battle!
+						</button>
 					</div>
 					<div className='col-sm-12' style={styles.space}>
-						LINK TO /PLAYERONE
+						<Link to="/playerOne">
+							<button type="button" className="btn btn-lg btn-danger">Reselect Players</button>
+						</Link>
 					</div>
 				</div>
 			</div>
