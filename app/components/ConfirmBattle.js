@@ -1,6 +1,7 @@
 import React, { PropTypes } from "react";
 import styles from "../styles";
 import { Link } from "react-router";
+import UserDetails from "./UserDetails";
 
 function puke (obj) {  //Pukes the Data to the screen to look at
 	return <pre>{JSON.stringify(obj, null, " ")}</pre>;  //Pre tag keeps the Exact format you type in, tabs and all
@@ -16,11 +17,11 @@ function ConfirmBattle(props) {
 				<div className='col-sm-8 col-sm-offset-2'>
 					<div className="col-sm-6">
 						<p className="lead">Player 1</p>
-						{puke(props.playersInfo[0])}
+						<UserDetails info={props.playersInfo[0]}/>
 					</div>
 					<div className="col-sm-6">
 						<p className="lead">Player 1</p>
-						{puke(props.playersInfo[1])}
+						<UserDetails info={props.playersInfo[1]}/>
 					</div>
 				</div>
 				<div className='col-sm-8 col-sm-offset-2'>
