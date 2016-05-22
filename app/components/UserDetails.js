@@ -14,12 +14,12 @@ function UserDetails (user) {
 			<li className="list-group-item">Public Repos: {user.info.public_repos}</li>
 			{user.info.blog && <li className="list-group-item">Blog: <a href={user.info.blog}> {user.info.blog}</a></li>}
 		</div>
-	)
+	); // If user.info.blog is truthy then render the list item
 }
 
 UserDetails.propTypes = {
 	score: PropTypes.number,
-	info: PropTypes.shape({
+	info: PropTypes.shape({  //Shape allows you to do proptypes for methods on objects
 		avatar_url: PropTypes.string.isRequired,
 		blog: PropTypes.string,
 		company: PropTypes.string,
