@@ -6,7 +6,7 @@ var id = "YOUR_CLIENT_ID",
 		param = `?client_id=${id}&client_secret=${sec}`;
 
 function getUserInfo (username) {
-	return axios.get(`https://api.github.com/users/${username}`);
+	return axios.get(`https://api.github.com/users/${username}${param}`);
 }
 
 function getRepos (username) {
