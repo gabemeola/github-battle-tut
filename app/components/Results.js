@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react";
 
 function puke (obj) {
-	return <pre>{JSON.stringify(obj, 2, " ")}</pre>
+	return <pre>{JSON.stringify(obj, null, " ")}</pre>
 }
 
 function Results (props) {
@@ -11,9 +11,9 @@ function Results (props) {
 }
 
 Results.propTypes = {
-	isLoading: React.bool.isRequired,
-	playersInfo: React.array.isRequired,
-	scores: React.array.isRequired
+	isLoading: PropTypes.bool.isRequired,
+	playersInfo: PropTypes.array.isRequired,
+	scores: PropTypes.array.isRequired
 };
 
 export default Results;
