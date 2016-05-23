@@ -11,20 +11,36 @@ function getUserInfo (username) {
 
 function getRepos (username) {
 	// fetch usernames repos
+	return axios.get(`https://api.github.com/users/${username}/repos/&per_page=100`);
 }
 
-function getTotalStars (stars) {
+function getTotalStars (repos) {
 	// calculate all the stars that the user has
+	return repos.data.reduce(function (prev, current) {
+		return prev + current.stargazers_count
+	}, 0)
 }
 
 function getPlayersData (player) {
 	// getRepos
 	// getTotalStars
 	// return obj with that data
+	return getRepos(player.login)
+		.then(getTotalStars)
+		.then(function (totalStars) {
+			return {
+				followers: player.followers,
+				totalStars: totalStars
+			}
+		})
 }
 
 function calculateScores (players) {
 	// return an array, after doing some fancy algorithms to determine a winner
+	return [
+		players[0].followers * 3 + players[0].totalStars,
+		players[1].followers * 3 + players[1].totalStars
+	]
 }
 
 
