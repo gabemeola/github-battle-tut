@@ -20,6 +20,14 @@ function StartOver () {
 }
 
 function Results (props) {
+	if (props.isLoading === true) {
+		return (
+			<div className="jumbotron col-sm-12 text-center" style={styles.transparentBg}>
+				<h1>LOADING</h1>
+			</div>
+		)
+	}
+
 	if (props.scores[0] === props.scores[1]) {
 		return(
 			<div className="jumbotron col-sm-12 text-center" style={styles.transparentBg}>
