@@ -3,6 +3,8 @@ import styles from "../styles";
 import { Link } from "react-router";
 import UserDetails from "./UserDetails";
 import UserDetailsWrapper from "./UserDetailsWrapper";
+import MainContainer from "../containers/MainContainer";
+
 
 function puke (obj) {  //Pukes the Data to the screen to look at
 	return <pre>{JSON.stringify(obj, null, " ")}</pre>;  //Pre tag keeps the Exact format you type in, tabs and all
@@ -10,10 +12,10 @@ function puke (obj) {  //Pukes the Data to the screen to look at
 
 function ConfirmBattle(props) {
 	return props.isLoading === true
-		? <div className="jumbotron col-sm-12 text-center" style={styles.transparentBg}>
+		? <MainContainer>
 				<h1>Loading</h1>
-			</div>
-		: <div className="jumbotron col-sm-12 text-center" style={styles.transparentBg}>
+			</MainContainer>
+		: <MainContainer>
 				<h1>Confirm Players</h1>
 				<div className='col-sm-8 col-sm-offset-2'>
 					<UserDetailsWrapper header="Player One">
@@ -35,7 +37,7 @@ function ConfirmBattle(props) {
 						</Link>
 					</div>
 				</div>
-			</div>
+			</MainContainer>
 }
 
 ConfirmBattle.propTypes = {
