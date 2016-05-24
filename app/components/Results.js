@@ -15,7 +15,6 @@ function StartOver () {
 			<Link to="/playerOne">
 				<button type="button" className="btn btn-lg btn-danger">Start Over</button>
 			</Link>
-			<StartOver/>
 		</div>
 	)
 }
