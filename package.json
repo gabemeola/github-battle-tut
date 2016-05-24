@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "production": "webpack -p",
-    "start": "webpack-dev-server"
+    "production": "webpack -p --progress --colors",
+    "start": "webpack-dev-server --colors"
   },
   "author": "",
   "license": "ISC",
