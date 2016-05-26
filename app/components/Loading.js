@@ -19,9 +19,27 @@ var styles = {
 
 var Loading = React.createClass({
 	getInitialState: function () {
+		this.originalText = "Loading";
 		return {
-			text: "Loading"
+			text: this.originalText + "..."
 		}
+	},
+	componentDidMount: function () {
+		var stopper = "Loading...";
+		this.interval = setInterval(function () {
+			if (this.state.text === stopper) {
+				this.setState({
+					text: this.originalText
+				})
+			} else {
+				this.setState({
+					text: this.state.text + "."
+				})
+			}
+ 		}.bind(this), 300)
+	},
+	componentWillUnmount : function () {  // Stops the Loop after we aren't using the component
+		clearInterval(this.interval)
 	},
 	render(){
 		return(
