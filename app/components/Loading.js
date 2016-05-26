@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropTypes } from "react";
 
 var styles = {
 	container: {
@@ -18,14 +18,24 @@ var styles = {
 };
 
 var Loading = React.createClass({
-	getInitialState: function () {
-		this.originalText = "Loading";
+	propTypes: {
+		text: PropTypes.string,
+		speed: PropTypes.number
+	},
+	getDefaultProps: function () {
 		return {
-			text: this.originalText + "..."
+			text: "Loading",
+			speed: 300
+		}
+	},
+	getInitialState: function () {
+		this.originalText = this.props.text;
+		return {
+			text: this.originalText
 		}
 	},
 	componentDidMount: function () {
-		var stopper = "Loading...";
+		var stopper = this.originalText + "...";
 		this.interval = setInterval(function () {
 			if (this.state.text === stopper) {
 				this.setState({
@@ -36,7 +46,7 @@ var Loading = React.createClass({
 					text: this.state.text + "."
 				})
 			}
- 		}.bind(this), 300)
+ 		}.bind(this), this.props.speed)
 	},
 	componentWillUnmount : function () {  // Stops the Loop after we aren't using the component
 		clearInterval(this.interval)
