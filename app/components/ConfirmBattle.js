@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import UserDetails from "./UserDetails";
 import UserDetailsWrapper from "./UserDetailsWrapper";
 import MainContainer from "../containers/MainContainer";
+import Loading from "./Loading";
 
 
 function puke (obj) {  //Pukes the Data to the screen to look at
@@ -12,9 +13,7 @@ function puke (obj) {  //Pukes the Data to the screen to look at
 
 function ConfirmBattle(props) {
 	return props.isLoading === true
-		? <MainContainer>
-				<h1>Loading</h1>
-			</MainContainer>
+		? <Loading/>
 		: <MainContainer>
 				<h1>Confirm Players</h1>
 				<div className='col-sm-8 col-sm-offset-2'>
