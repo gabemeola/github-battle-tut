@@ -4,6 +4,7 @@ import UserDetailsWrapper from "./UserDetailsWrapper";
 import styles from "../styles";
 import { Link } from "react-router";
 import MainContainer from "../containers/MainContainer";
+import Loading from "./Loading";
 
 function puke (obj) {
 	return <pre>{JSON.stringify(obj, null, " ")}</pre>
@@ -22,9 +23,7 @@ function StartOver () {
 function Results (props) {
 	if (props.isLoading === true) {
 		return (
-			<MainContainer>
-				<h1>LOADING</h1>
-			</MainContainer>
+			<Loading speed={100} text="One Moment"/>
 		)
 	}
 
