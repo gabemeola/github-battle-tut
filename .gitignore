@@ -5,7 +5,6 @@ firebase.json
 bundle.js
 .idea
 node_modules
-main.css
 min-icons/
 build/
 dist/
