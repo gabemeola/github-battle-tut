@@ -22,21 +22,21 @@ const Loading = React.createClass({
 		text: PropTypes.string,
 		speed: PropTypes.number
 	},
-	getDefaultProps: function () {
+	getDefaultProps() {
 		return {
 			text: "Loading",
 			speed: 300
 		}
 	},
-	getInitialState: function () {
+	getInitialState() {
 		this.originalText = this.props.text;
 		return {
 			text: this.originalText
 		}
 	},
-	componentDidMount: function () {
+	componentDidMount() {
 		const stopper = this.originalText + "...";
-		this.interval = setInterval(function () {
+		this.interval = setInterval( () => {
 			if (this.state.text === stopper) {
 				this.setState({
 					text: this.originalText
@@ -46,9 +46,9 @@ const Loading = React.createClass({
 					text: this.state.text + "."
 				})
 			}
- 		}.bind(this), this.props.speed)
+ 		}, this.props.speed)
 	},
-	componentWillUnmount : function () {  // Stops the Loop after we aren't using the component
+	componentWillUnmount() {  // Stops the Loop after we aren't using the component
 		clearInterval(this.interval)
 	},
 	render(){
