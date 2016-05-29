@@ -1,7 +1,7 @@
 import axios from "axios";
 
 //Prevent Github Api Lock
-var id = "YOUR_CLIENT_ID",
+const id = "YOUR_CLIENT_ID",
 		sec = "YOUR_SECRET_ID",
 		param = `?client_id=${id}&client_secret=${sec}`;
 
@@ -44,30 +44,26 @@ function calculateScores (players) {
 }
 
 
-var helpers = {
-	getPlayersInfo: function (players) {
-		//fetch some data from github
-		return axios.all(players.map(function (username) {
-			return getUserInfo(username);
-		})).then(function (info) {
-			return info.map(function (user) {
-				return user.data;
-			})
-		}).catch(function (err) {
-			console.warn("Error in getPlayersInfo", err);
+export function	getPlayersInfo(players) {
+	//fetch some data from github
+	return axios.all(players.map(function (username) {
+		return getUserInfo(username);
+	})).then(function (info) {
+		return info.map(function (user) {
+			return user.data;
 		})
-	},
+	}).catch(function (err) {
+		console.warn("Error in getPlayersInfo", err);
+	})
+}
 
-	battle: function (players) {
-		var playerOneData = getPlayersData(players[0]),
-				playerTwoData = getPlayersData(players[1]);
+export function battle(players) {
+	const playerOneData = getPlayersData(players[0]),
+			playerTwoData = getPlayersData(players[1]);
 
-		return axios.all([playerOneData, playerTwoData])
-			.then(calculateScores)
-			.catch(function (err) {
-				console.warn("Error in getPlayersInfo: ", err)
-			})
-	}
-};
-
-export default helpers;
+	return axios.all([playerOneData, playerTwoData])
+		.then(calculateScores)
+		.catch(function (err) {
+			console.warn("Error in getPlayersInfo: ", err)
+		})
+}
