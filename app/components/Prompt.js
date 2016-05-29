@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react";
-var transparentBg = require("../styles").transparentBg;
+import { transparentBg } from "../styles";
 
 // functional stateless components for only rendering UI
 function Prompt(props) {

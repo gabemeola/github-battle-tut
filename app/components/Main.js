@@ -2,7 +2,7 @@ import React from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import "../main.css"
 
-var Main = React.createClass({
+const Main = React.createClass({
 	render(){
 		return(
 			<div className="main-container">
