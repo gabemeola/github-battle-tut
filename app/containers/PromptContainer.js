@@ -36,8 +36,8 @@ class PromptContainer extends React.Component{
 	render(){
 		return (
 			<Prompt
-				onSubmitUser={() => this.handleSubmitUser()}
-				onUpdateUser={() => this.handleUpdateUser()}
+				onSubmitUser={(event) => this.handleSubmitUser(event)}
+				onUpdateUser={(event) => this.handleUpdateUser(event)}
 			  header={this.props.route.header}
 			  username={this.state.username}
 			/>
