@@ -5,7 +5,8 @@ const id = "YOUR_CLIENT_ID",
 		sec = "YOUR_SECRET_ID",
 		param = `?client_id=${id}&client_secret=${sec}`;
 
-function getUserInfo (username) {
+function getUserInfo (username = "gabemeola") { // If username is undefined default value is gabemeola, same as below
+	// username = username || "gabemeola";
 	return axios.get(`https://api.github.com/users/${username}${param}`);
 }
 
