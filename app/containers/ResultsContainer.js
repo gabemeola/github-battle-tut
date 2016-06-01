@@ -2,13 +2,14 @@ import React from "react";
 import Results from "../components/Results";
 import { battle } from "../utils/githubHelpers";
 
-const ResultsContainer = React.createClass({
-	getInitialState() {
-		return {
+class ResultsContainer extends React.Component{
+	constructor() {
+		super();
+		this.state = {
 			isLoading: true,
 			scores: []
 		}
-	},
+	}
 	componentDidMount() {
 		console.log(this.props);
 		battle(this.props.location.state.playersInfo)
@@ -18,7 +19,7 @@ const ResultsContainer = React.createClass({
 					isLoading: false
 				})
 			})
-	},
+	}
 	render(){
 		return(
 			<Results
@@ -28,6 +29,6 @@ const ResultsContainer = React.createClass({
 			/>
 		)
 	}
-});
+}
 
 export default ResultsContainer;
