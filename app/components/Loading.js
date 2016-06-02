@@ -17,23 +17,14 @@ const styles = {
 	}
 };
 
-const Loading = React.createClass({
-	propTypes: {
-		text: PropTypes.string,
-		speed: PropTypes.number
-	},
-	getDefaultProps() {
-		return {
-			text: "Loading",
-			speed: 300
-		}
-	},
-	getInitialState() {
+class Loading extends React.Component{
+	constructor(props) {
+		super(props);
 		this.originalText = this.props.text;
-		return {
+		this.state = {
 			text: this.originalText
 		}
-	},
+	}
 	componentDidMount() {
 		const stopper = this.originalText + "...";
 		this.interval = setInterval( () => {
@@ -47,10 +38,10 @@ const Loading = React.createClass({
 				})
 			}
  		}, this.props.speed)
-	},
+	}
 	componentWillUnmount() {  // Stops the Loop after we aren't using the component
 		clearInterval(this.interval)
-	},
+	}
 	render(){
 		return(
 			<div style={styles.container}>
@@ -58,6 +49,16 @@ const Loading = React.createClass({
 			</div>
 		)
 	}
-});
+}
+
+Loading.propTypes = {
+	text: PropTypes.string,
+	speed: PropTypes.number
+};
+
+Loading.defaultProps = {
+	text: "Loading",
+	speed: 300
+};
 
 export default Loading;
